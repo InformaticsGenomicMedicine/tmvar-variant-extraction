@@ -4,7 +4,7 @@ bioc==1.3.4
 certifi==2019.9.11
 cffi==1.14.0
 chardet==3.0.4
-cryptography==2.9
+cryptography==46.0.5
 docutils==0.15.2
 ecdsa==0.15
 erlastic==2.0.0
