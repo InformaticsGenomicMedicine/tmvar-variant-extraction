@@ -4,11 +4,33 @@
 
 ### To set up the environment:
 
+### Option 1: Standard Python venv
+
 ```bash
-$ python3.9 -m venv env39
-$ source env39/bin/activate
-$ pip install -r requirements.txt
+python3.9 -m venv env39
+source env39/bin/activate
+pip install -r requirements.txt
 ```
+
+### Option 2: uv setup
+
+```bash
+uv python install 3.9
+uv venv --python 3.9
+source .venv/bin/activate
+uv pip install -r requirements.txt
+```
+
+## SSL Configuration
+
+If you encounter SSL errors (e.g., behind Zscaler), set:
+
+```bash
+export REQUESTS_CA_BUNDLE=/path/to/your/certificate.pem
+echo $REQUESTS_CA_BUNDLE
+```
+
+> If you do not have a `.pem` file, contact the repository maintainer to provide you info on how to get the .pem.
 
 The process consists of two primary steps
 
