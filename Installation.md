@@ -1,10 +1,10 @@
 # Installation
 
-## A. Processing raw text online
+## Processing Raw Text (Online)
 
-### To set up the environment:
+### Environment Setup
 
-### Option 1: Standard Python venv
+#### Option 1: Standard Python venv
 
 ```bash
 python3.9 -m venv env39
@@ -12,7 +12,7 @@ source env39/bin/activate
 pip install -r requirements.txt
 ```
 
-### Option 2: uv setup
+#### Option 2: uv setup
 
 ```bash
 uv python install 3.9
@@ -77,8 +77,17 @@ $ python SubmitText_retrieve.py [Inputfolder] [Inputfile_SessionNumber] [Outputf
 python SubmitText_retrieve.py input SessionNumber.txt output
 ```
 
----
+#### Notes on retrieval behavior
 
-## B. Using the PubTator API efficiently
+- `[SessionNumber]` refers to the unique ID returned when a file is submitted.  
+- Results are not available immediately after submission.  
+
+- If retrieval is attempted too early, the API may return:
+
+  ```text
+  [Warning]: The result is not ready
+  ```
+
+## Using the PubTator API efficiently
 
 Each file in the input folder will be submitted for processing separately. After submission, each file may be queued for 10 to 20 minutes, depending on the computer cluster workload. Files then wait several additional minutes loading the trained models before processing can begin. System throughput is therefore significantly reduced if each file only contains a small amount of text. To improve efficiency, we suggest that each file contain roughly 100 abstracts or 5 full-text articles (100,000-200,000 characters). Note that some files may complete earlier than others; the estimated time to complete (ETC) is an estimate of the processing time for all files.
