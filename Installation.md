@@ -1,7 +1,5 @@
 # Installation
 
-## Processing Raw Text (Online)
-
 ### Environment Setup
 
 #### Option 1: Standard Python venv
@@ -30,15 +28,16 @@ export REQUESTS_CA_BUNDLE=/path/to/your/certificate.pem
 echo $REQUESTS_CA_BUNDLE
 ```
 
-> If you do not have a `.pem` file, contact the repository maintainer to provide you info on how to get the .pem.
+> Important: This command must be run in each new terminal session unless you make it persistent.
+If you do not have a .pem file, contact the repository maintainer for instructions on how to obtain one.
 
-The process consists of two primary steps
+## Processing Raw Text (Online)
+The process consists of two primary steps:
 
-1. submitting requests and
+1. submitting requests 
 2. retrieving results.
 
 ---
-
 ### 1) Submitting requests
 
 Three parameters are required, which include the name of the target folder containing files to process, the specific concept to retrieve, and the output file to save the session numbers for later retrieval. Note that each session number represents the submission of one file.
