@@ -26,8 +26,10 @@ These changes were necessary to successfully install and run the software.
 
 ## Input and Output Files 
 
-The `input/` and `output/` directories are reserved for actual data processing and are excluded from version control to prevent accidental inclusion of large or sensitive files.
+The `input/` and `output/` directories are intended for actual data processing and are excluded from version control to prevent accidental inclusion of large or sensitive files.
 
-To support testing, `test_input/` and `test_output/` directories are provided to store sample data. Three test datasets are included in PubTator (.PubTator), XML, and JSON formats, which can be used to verify that the installation and configuration are set up correctly by following the instructions in [INSTALLATION.md](./Installation.md).
+For testing and validation, `test_input/` and `test_output/`directories are provided. These contain sample datasets in PubTator (.PubTator), XML, and JSON formats.
+
+You can use these test files to verify that your installation and configuration are working correctly by following the steps in [INSTALLATION.md](./Installation.md).
 
 
