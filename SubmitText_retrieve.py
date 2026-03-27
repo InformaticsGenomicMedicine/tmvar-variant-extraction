@@ -1,6 +1,7 @@
 import requests
 import os
 import sys
+import time
 
 def submit_text_retrieve(input_folder, inputfile_session_number, output_folder):
     # Ensure output directory exists
@@ -24,13 +25,15 @@ def submit_text_retrieve(input_folder, inputfile_session_number, output_folder):
             continue
 
         retrieve_url = f"{base_url}?id={session_number}"
-        response = requests.get(retrieve_url)
+        response = requests.get(retrieve_url,timeout=30)
         if response.status_code == 200:
             with open(output_file_path, 'w', encoding='utf-8') as output_file:
                 output_file.write(response.text)
             print(f"{session_number} : Result is retrieved.")
+            time.sleep(4)
         else:
             print(f"{session_number} : Error retrieving results - {response.status_line}")
+            time.sleep(6)
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:

@@ -4,6 +4,7 @@ import sys
 from unidecode import unidecode
 import unicodedata
 import re
+import time
 
 def submit_text_request(input_folder, bioconcept, output_file_session_number):
     pattern = r'[^0-9a-zA-Z\!\@\#\$\%\^\&\*\(\)\_\+\{\}\|\:\"\<\>\?\-\=\[\]\\;\'\,\.\/ \t\n\r]'
@@ -24,7 +25,7 @@ def submit_text_request(input_folder, bioconcept, output_file_session_number):
             if filename.startswith('.'):
                 continue  # Skip hidden files
             text_str = ''
-            with open(os.path.join(input_folder, filename), 'r', encoding='utf-8') as file_input:
+            with open(os.path.join(input_folder, filename), 'r', encoding='utf-8',errors='replace') as file_input:
                 for line in file_input:
                     normalized_line = unicodedata.normalize('NFC', line)
                     for uni, reg in unicode_to_regular.items():
@@ -33,14 +34,16 @@ def submit_text_request(input_folder, bioconcept, output_file_session_number):
                     text_str += normalized_line
             text_str = re.sub(pattern, ' ', text_str)
             url = "https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/RESTful/request.cgi"
-            response = requests.post(url, data={'text': text_str, 'bioconcept': bioconcept})
+            response = requests.post(url, data={'text': text_str, 'bioconcept': bioconcept},timeout=30)
             
             if response.status_code == 200:
                 session_number = response.json().get('id', '')
                 print(f"Thanks for your submission. The session number is: {session_number}")
                 output_file.write(f"{session_number}\t{filename}\n")
+                time.sleep(4)
             else:
                 print(f"Error: HTTP {response.status_code} for {filename}")
+                time.sleep(6)
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
