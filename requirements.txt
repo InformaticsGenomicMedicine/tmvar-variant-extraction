@@ -8,7 +8,7 @@ cryptography>=41.0.0
 docutils==0.15.2
 ecdsa==0.19.2
 erlastic==2.0.0
-idna==2.8
+idna==3.7
 jsonlines==1.2.0
 lxml==4.4.1
 paramiko==2.7.1
