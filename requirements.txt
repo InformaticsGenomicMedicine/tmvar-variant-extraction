@@ -6,7 +6,7 @@ cffi>=1.16.0
 chardet==3.0.4
 cryptography>=41.0.0
 docutils==0.15.2
-ecdsa==0.15
+ecdsa==0.19.2
 erlastic==2.0.0
 idna==2.8
 jsonlines==1.2.0
