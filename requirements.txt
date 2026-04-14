@@ -10,7 +10,7 @@ ecdsa==0.19.2
 erlastic==2.0.0
 idna==3.7
 jsonlines==1.2.0
-lxml==4.4.1
+lxml==4.9.4
 paramiko==3.4.0
 ply==3.11
 pyasn1==0.6.3
