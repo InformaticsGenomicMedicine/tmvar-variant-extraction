@@ -13,16 +13,11 @@ See [INSTALLATION.md](./Installation.md) for environment setup and usage instruc
 
 ## Dependency Modifications
 
-This project includes a set of updated dependencies to ensure compatibility with modern Python environments.
+This project is configured to run on Python 3.10.
 
-Several packages specified in the original software were outdated or no longer maintained. The following adjustments were made:
+Several dependencies were bumped to maintain compatibility with modern Python environments. Some of the original package versions were outdated, no longer supported, or incompatible with newer Python releases.
 
-- `cffi` upgraded to >=1.16.0 to resolve installation issues  
-- `cryptography` upgraded to >=41.0.0 due to incompatibility with older versions  
-- `pyOpenSSL` upgraded to >=24.0 for compatibility  
-- `pycrypto` replaced with `pycryptodome` (as `pycrypto` is no longer maintained)  
-
-These changes were necessary to successfully install and run the software.
+These updates were required to ensure the project can be installed and run successfully.
 
 ## Input and Output Files 
 
